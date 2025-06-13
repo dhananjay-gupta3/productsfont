@@ -579,9 +579,9 @@ const getImageUrl = (imagePath) => {
   if (imagePath.startsWith('http')) {
     return imagePath
   }
-  const baseUrl = process.dev
-    ? config.public.apiBaseUrl.replace('/api', '')
-    : config.public.apiBaseUrl
+  const baseUrl = process.env.NODE_ENV === 'production'
+    ? 'https://productbackends.onrender.com'
+    : 'http://localhost:5000'
   return `${baseUrl}/uploads/${imagePath}`
 }
 const handleImageError = (id) => {
