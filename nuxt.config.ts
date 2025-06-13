@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     proxy: {
       '/uploads': {
         target: process.env.API_BASE_URL || 'http://localhost:5000',
+          imageBaseUrl: process.env.NUXT_PUBLIC_IMAGE_BASE_URL || 'http://localhost:5000'
         changeOrigin: true
       }
     }
