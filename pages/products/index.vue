@@ -576,13 +576,8 @@ const updateProduct = async () => {
 }
 const getImageUrl = (imagePath) => {
   if (!imagePath) return ''
-  if (imagePath.startsWith('http')) {
-    return imagePath
-  }
-  const baseUrl = process.env.NODE_ENV === 'production'
-    ? 'https://productbackends.onrender.com'
-    : 'http://localhost:5000'
-  return `${baseUrl}/uploads/${imagePath}`
+  const imageBaseUrl = config.public.imageBaseUrl
+  return `${imageBaseUrl}/uploads/${imagePath}`
 }
 const handleImageError = (id) => {
   brokenImages.value[id] = true
